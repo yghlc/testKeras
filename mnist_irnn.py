@@ -15,6 +15,14 @@ Reaches 0.93 train/test accuracy after 900 epochs
 
 from __future__ import print_function
 
+###-------------------------- set gpu using tf ---------------------------
+import tensorflow as tf
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+session = tf.Session(config=config)
+###-------------------  start importing keras module ---------------------
+
+
 import keras
 from keras.datasets import mnist
 from keras.models import Sequential
@@ -23,12 +31,14 @@ from keras.layers import SimpleRNN
 from keras import initializers
 from keras.optimizers import RMSprop
 
-batch_size = 32
+amplify=20
+
+batch_size = 32*amplify
 num_classes = 10
 epochs = 200
 hidden_units = 100
 
-learning_rate = 1e-6
+learning_rate = 1e-6*amplify
 clip_norm = 1.0
 
 # the data, split between train and test sets
