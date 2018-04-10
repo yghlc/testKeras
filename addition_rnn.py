@@ -27,6 +27,14 @@ Five digits reversed:
 '''
 
 from __future__ import print_function
+
+###-------------------------- set gpu using tf ---------------------------
+import tensorflow as tf
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+session = tf.Session(config=config)
+###-------------------  start importing keras module ---------------------
+
 from keras.models import Sequential
 from keras import layers
 import numpy as np

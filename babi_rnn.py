@@ -64,6 +64,14 @@ import tarfile
 
 import numpy as np
 
+
+###-------------------------- set gpu using tf ---------------------------
+import tensorflow as tf
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+session = tf.Session(config=config)
+###-------------------  start importing keras module ---------------------
+
 from keras.utils.data_utils import get_file
 from keras.layers.embeddings import Embedding
 from keras import layers

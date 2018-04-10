@@ -32,6 +32,13 @@ After 5 epochs: train acc: 0.9858, val acc: 0.9864
 """
 from __future__ import print_function
 
+###-------------------------- set gpu using tf ---------------------------
+import tensorflow as tf
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+session = tf.Session(config=config)
+###-------------------  start importing keras module ---------------------
+
 import keras
 from keras.datasets import mnist
 from keras.models import Model
